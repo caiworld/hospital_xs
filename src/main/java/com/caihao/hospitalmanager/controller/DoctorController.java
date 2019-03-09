@@ -3,6 +3,7 @@ package com.caihao.hospitalmanager.controller;
 import com.caihao.hospitalmanager.entity.Doctor;
 import com.caihao.hospitalmanager.entity.Result;
 
+import com.caihao.hospitalmanager.entity.dto.DoctorDto;
 import com.caihao.hospitalmanager.service.DoctorService;
 import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,7 +35,7 @@ public class DoctorController {
    */
   @GetMapping("/get_doctor_list")
   public Result getDoctorList(@RequestParam(defaultValue = "1") Integer pageNum) {
-    PageInfo<Doctor> pageInfo = doctorService.getDoctorList(pageNum);
+    PageInfo<DoctorDto> pageInfo = doctorService.getDoctorList(pageNum);
     return new Result(Result.OK, pageInfo);
   }
 

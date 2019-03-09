@@ -35,8 +35,8 @@ public class Doctor {
   /**
    * 头像
    */
-  @Column(name = "`headImg`")
-  private String headimg;
+  @Column(name = "`head_img`")
+  private String headImg;
 
   /**
    * 职称
@@ -54,7 +54,7 @@ public class Doctor {
    * 部门
    */
   @Column(name = "`department`")
-  private String department;
+  private Integer department;
 
   /**
    * 出生时间
@@ -67,6 +67,24 @@ public class Doctor {
    */
   @Column(name = "`work_time`")
   private Date workTime;
+
+  /**
+   * 创建时间
+   */
+  @Column(name = "`create_time`")
+  private Date createTime;
+
+  /**
+   * 修改时间
+   */
+  @Column(name = "`update_time`")
+  private Date updateTime;
+
+  /**
+   * 创建时间
+   */
+  @Column(name = "`is_del`")
+  private Boolean isDel;
 
   /**
    * 获取主键，自增长
@@ -127,17 +145,17 @@ public class Doctor {
    *
    * @return headImg - 头像
    */
-  public String getHeadimg() {
-    return headimg;
+  public String getHeadImg() {
+    return headImg;
   }
 
   /**
    * 设置头像
    *
-   * @param headimg 头像
+   * @param headImg 头像
    */
-  public void setHeadimg(String headimg) {
-    this.headimg = headimg;
+  public void setHeadImg(String headImg) {
+    this.headImg = headImg;
   }
 
   /**
@@ -181,7 +199,7 @@ public class Doctor {
    *
    * @return department - 部门
    */
-  public String getDepartment() {
+  public Integer getDepartment() {
     return department;
   }
 
@@ -190,7 +208,7 @@ public class Doctor {
    *
    * @param department 部门
    */
-  public void setDepartment(String department) {
+  public void setDepartment(Integer department) {
     this.department = department;
   }
 
@@ -228,5 +246,29 @@ public class Doctor {
    */
   public void setWorkTime(Date workTime) {
     this.workTime = workTime;
+  }
+
+  public Date getCreateTime() {
+    return createTime;
+  }
+
+  public void setCreateTime(Date createTime) {
+    this.createTime = createTime;
+  }
+
+  public Date getUpdateTime() {
+    return updateTime;
+  }
+
+  public void setUpdateTime(Date updateTime) {
+    this.updateTime = updateTime;
+  }
+
+  public Boolean getDel() {
+    return isDel;
+  }
+
+  public void setDel(Boolean del) {
+    isDel = del;
   }
 }

@@ -1,6 +1,7 @@
 package com.caihao.hospitalmanager.service.impl;
 
 import com.caihao.hospitalmanager.entity.Doctor;
+import com.caihao.hospitalmanager.entity.dto.DoctorDto;
 import com.caihao.hospitalmanager.mapper.DoctorMapper;
 import com.caihao.hospitalmanager.service.DoctorService;
 import com.github.pagehelper.PageHelper;
@@ -28,16 +29,17 @@ public class DoctorServiceImpl implements DoctorService {
   /**
    * 获取医生信息集合
    *
+   * @param pageNum 页数
    * @return com.github.pagehelper.PageInfo<com.caihao.hospitalmanager.entity.Doctor>
    * @author 蔡浩
    * @date 2019/2/26 20:15
    * @since 1.0.0
    */
   @Override
-  public PageInfo<Doctor> getDoctorList(Integer pageNum) {
+  public PageInfo<DoctorDto> getDoctorList(Integer pageNum) {
     // 分页查询
     PageHelper.startPage(pageNum, PAGESIZE);
-    List<Doctor> doctorList = doctorMapper.selectDoctorList();
+    List<DoctorDto> doctorList = doctorMapper.selectDoctorList();
     return new PageInfo<>(doctorList);
   }
 }
