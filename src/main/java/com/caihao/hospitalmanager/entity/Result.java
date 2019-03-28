@@ -1,5 +1,7 @@
 package com.caihao.hospitalmanager.entity;
 
+import java.util.Objects;
+
 /**
  * 结果集
  *
@@ -25,9 +27,9 @@ public class Result {
   public Result() {
   }
 
-  public Result(Integer code,Object data){
+  public Result(Integer code, Object data) {
     this.code = code;
-    this.message = code==OK?"请求成功":"请求失败";
+    this.message = Objects.equals(code, OK) ? "请求成功" : "请求失败";
     this.data = data;
   }
 

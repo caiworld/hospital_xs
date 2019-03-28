@@ -17,4 +17,21 @@
     <result column="exit_time" property="exitTime" jdbcType="TIMESTAMP" />
     <result column="is_exit" property="isExit" jdbcType="BIT" />
   </resultMap>
+
+  <!--查询所有病人信息-->
+  <select id="selectPatientList" resultType="com.caihao.hospitalmanager.entity.dto.PatientDto">
+    SELECT
+      id,
+      department_ids,
+      `number`,
+      `name`,
+      sex,
+      age,
+      disease,
+      doctor_ids,
+      in_time,
+      exit_time,
+      is_exit
+    FROM patient
+  </select>
 </mapper>
