@@ -33,7 +33,7 @@ public class DoctorController {
    * @date: 2019/3/3 16:31
    * @since: 1.0.0
    */
-  @CrossOrigin
+//  @CrossOrigin
   @GetMapping("/get_doctor_list")
   public Result getDoctorList(@RequestParam(defaultValue = "1") Integer pageNum) {
     PageInfo<DoctorDto> pageInfo = doctorService.getDoctorList(pageNum);
