@@ -81,7 +81,7 @@ public class Doctor {
   private Date updateTime;
 
   /**
-   * 创建时间
+   * 是否删除
    */
   @Column(name = "`is_del`")
   private Boolean isDel;

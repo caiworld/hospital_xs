@@ -1,12 +1,12 @@
 package com.caihao.hospitalmanager.controller;
 
-import com.caihao.hospitalmanager.entity.Doctor;
 import com.caihao.hospitalmanager.entity.Result;
-
 import com.caihao.hospitalmanager.entity.dto.DoctorDto;
 import com.caihao.hospitalmanager.service.DoctorService;
 import com.github.pagehelper.PageInfo;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -33,6 +33,7 @@ public class DoctorController {
    * @date: 2019/3/3 16:31
    * @since: 1.0.0
    */
+  @CrossOrigin
   @GetMapping("/get_doctor_list")
   public Result getDoctorList(@RequestParam(defaultValue = "1") Integer pageNum) {
     PageInfo<DoctorDto> pageInfo = doctorService.getDoctorList(pageNum);
