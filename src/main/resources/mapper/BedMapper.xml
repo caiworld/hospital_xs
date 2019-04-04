@@ -11,4 +11,19 @@
     <result column="state" property="state" jdbcType="SMALLINT" />
     <result column="is_del" property="isDel" jdbcType="BIT" />
   </resultMap>
+
+  <!--查询病床信息-->
+  <select id="selectBedList" resultType="com.caihao.hospitalmanager.entity.dto.BedDto">
+    SELECT
+      b.id,
+      b.patient_id,
+      b.grade,
+      b.state,
+      p.`name` AS patientName,
+      bg.`name` AS bedGradeName,
+      bg.cost
+    FROM bed AS b
+    LEFT JOIN patient AS p ON b.patient_id = p.id
+    LEFT JOIN bed_grade AS bg ON b.grade = bg.id
+  </select>
 </mapper>
