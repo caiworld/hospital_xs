@@ -42,4 +42,60 @@ public class DoctorServiceImpl implements DoctorService {
     List<DoctorDto> doctorList = doctorMapper.selectDoctorList();
     return new PageInfo<>(doctorList);
   }
+
+  /**
+   * 根据医生id获取医生信息
+   *
+   * @param id 医生id
+   * @return com.caihao.hospitalmanager.entity.Doctor
+   * @author 蔡浩
+   * @date 2019/4/12 13:51
+   * @since 1.0.0
+   */
+  @Override
+  public Doctor getDoctorById(Integer id) {
+    return doctorMapper.selectByPrimaryKey(id);
+  }
+
+  /**
+   * 保存医生信息
+   *
+   * @param doctor 医生信息
+   * @return int
+   * @author 蔡浩
+   * @date 2019/4/12 13:59
+   * @since 1.0.0
+   */
+  @Override
+  public int saveDoctor(Doctor doctor) {
+    return doctorMapper.insertSelective(doctor);
+  }
+
+  /**
+   * 修改医生信息
+   *
+   * @param doctor 医生信息
+   * @return int
+   * @author 蔡浩
+   * @date 2019/4/12 14:01
+   * @since 1.0.0
+   */
+  @Override
+  public int updateDoctor(Doctor doctor) {
+    return doctorMapper.updateByPrimaryKeySelective(doctor);
+  }
+
+  /**
+   * 根据医生id删除医生信息
+   *
+   * @param id 医生id
+   * @return int
+   * @author 蔡浩
+   * @date 2019/4/12 14:06
+   * @since 1.0.0
+   */
+  @Override
+  public int deleteDoctorById(Integer id) {
+    return doctorMapper.deleteByPrimaryKey(id);
+  }
 }
