@@ -1,7 +1,7 @@
 package com.caihao.hospitalmanager.mapper;
 
 import com.caihao.hospitalmanager.entity.User;
-import com.caihao.hospitalmanager.mapper.generator.MyMapper;
+import com.caihao.hospitalmanager.generator.MyMapper;
 
 public interface UserMapper extends MyMapper<User> {
 

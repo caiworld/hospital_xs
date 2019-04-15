@@ -1,5 +1,7 @@
 package com.caihao.hospitalmanager.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.util.Date;
 
 import javax.persistence.*;
@@ -60,24 +62,28 @@ public class Doctor {
    * 出生时间
    */
   @Column(name = "`birth_time`")
+  @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
   private Date birthTime;
 
   /**
    * 开始工作时间
    */
   @Column(name = "`work_time`")
+  @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
   private Date workTime;
 
   /**
    * 创建时间
    */
   @Column(name = "`create_time`")
+  @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
   private Date createTime;
 
   /**
    * 修改时间
    */
   @Column(name = "`update_time`")
+  @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
   private Date updateTime;
 
   /**

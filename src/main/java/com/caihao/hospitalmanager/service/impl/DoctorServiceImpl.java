@@ -10,6 +10,7 @@ import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 
 import static com.caihao.hospitalmanager.Common.PAGESIZE;
@@ -68,6 +69,7 @@ public class DoctorServiceImpl implements DoctorService {
    */
   @Override
   public int saveDoctor(Doctor doctor) {
+    doctor.setCreateTime(new Date());
     return doctorMapper.insertSelective(doctor);
   }
 

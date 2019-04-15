@@ -4,10 +4,7 @@ import com.caihao.hospitalmanager.entity.Patient;
 import com.caihao.hospitalmanager.entity.Result;
 import com.caihao.hospitalmanager.service.PatientService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Objects;
 
@@ -61,8 +58,8 @@ public class PatientController {
    * @date 2019/4/12 14:27
    * @since 1.0.0
    */
-  @GetMapping("/save")
-  public Result savePatient(Patient patient){
+  @PostMapping("/save")
+  public Result savePatient(@RequestBody Patient patient){
     if (Objects.isNull(patient.getId())){
       // 保存病人
       return new Result(Result.OK, patientService.savePatient(patient));

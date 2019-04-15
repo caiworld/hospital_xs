@@ -1,5 +1,7 @@
 package com.caihao.hospitalmanager.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.util.Date;
 import javax.persistence.*;
 
@@ -59,12 +61,14 @@ public class Patient {
      * 入院时间
      */
     @Column(name = "`in_time`")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     private Date inTime;
 
     /**
      * 出院时间
      */
     @Column(name = "`exit_time`")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     private Date exitTime;
 
     /**

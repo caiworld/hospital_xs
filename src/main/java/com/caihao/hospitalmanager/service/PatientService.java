@@ -1,6 +1,7 @@
 package com.caihao.hospitalmanager.service;
 
 import com.caihao.hospitalmanager.entity.Patient;
+import com.caihao.hospitalmanager.entity.dto.PatientDto;
 import com.github.pagehelper.PageInfo;
 
 /**
@@ -20,7 +21,7 @@ public interface PatientService {
    * @date 2019/3/28 21:52
    * @since 1.0.0
    */
-  PageInfo<Patient> getPatientList(Integer pageNum);
+  PageInfo<PatientDto> getPatientList(Integer pageNum);
 
   /**
    * 根据病人id获取病人信息

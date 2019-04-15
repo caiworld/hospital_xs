@@ -2,7 +2,7 @@ package com.caihao.hospitalmanager.mapper;
 
 import com.caihao.hospitalmanager.entity.Bed;
 import com.caihao.hospitalmanager.entity.dto.BedDto;
-import com.caihao.hospitalmanager.mapper.generator.MyMapper;
+import com.caihao.hospitalmanager.generator.MyMapper;
 
 import java.util.List;
 

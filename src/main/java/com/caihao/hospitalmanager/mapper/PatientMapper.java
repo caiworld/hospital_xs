@@ -1,7 +1,8 @@
 package com.caihao.hospitalmanager.mapper;
 
 import com.caihao.hospitalmanager.entity.Patient;
-import com.caihao.hospitalmanager.mapper.generator.MyMapper;
+import com.caihao.hospitalmanager.entity.dto.PatientDto;
+import com.caihao.hospitalmanager.generator.MyMapper;
 
 import java.util.List;
 
@@ -14,5 +15,5 @@ public interface PatientMapper extends MyMapper<Patient> {
    * @date 2019/3/28 22:02
    * @since 1.0.0
    */
-  List<Patient> selectPatientList();
+  List<PatientDto> selectPatientList();
 }

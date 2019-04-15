@@ -62,7 +62,7 @@ public class DoctorController {
    * @since 1.0.0
    */
   @PostMapping("/save")
-  public Result saveDoctor(Doctor doctor) {
+  public Result saveDoctor(@RequestBody Doctor doctor) {
     if (Objects.isNull(doctor.getId())) {
       // 保存医生
       doctorService.saveDoctor(doctor);

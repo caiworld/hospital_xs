@@ -13,7 +13,7 @@
         <property name="javaFileEncoding" value="UTF-8"/>
 
         <plugin type="tk.mybatis.mapper.generator.MapperPlugin">
-            <property name="mappers" value="com.caihao.hospitalmanager.mapper.generator.MyMapper"/>
+            <property name="mappers" value="com.caihao.hospitalmanager.generator.MyMapper"/>
             <property name="beginningDelimiter" value="`"/>
             <property name="endingDelimiter" value="`"/>
         </plugin>
