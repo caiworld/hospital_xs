@@ -87,8 +87,8 @@ public class ShiroConfig {
     // 设置安全管理器
     shiroFilterFactoryBean.setSecurityManager(securityManager);
     // 设置没登陆时跳转到的登陆页面
-    shiroFilterFactoryBean.setLoginUrl("http://www.baidu.com");
-    // shiroFilterFactoryBean.setLoginUrl("http://localhost:9696/#/passport/login");
+    // shiroFilterFactoryBean.setLoginUrl("http://www.baidu.com");
+    shiroFilterFactoryBean.setLoginUrl("http://localhost:9696/#/passport/login");
     /*
      * Shiro内置过滤器：实现权限相关的拦截
      *      常用过滤器：

@@ -25,7 +25,9 @@ public class DoctorController {
   /**
    * 获取医生信息
    *
-   * @param pageNum 页数
+   * @param pageNum      页数
+   * @param name         姓名
+   * @param departmentId 科室id
    * @return: com.caihao.hospitalmanager.entity.Result
    * @author: 蔡浩
    * @date: 2019/3/3 16:31
@@ -33,8 +35,8 @@ public class DoctorController {
    */
 //  @CrossOrigin
   @GetMapping("/get_list")
-  public Result getDoctorList(@RequestParam(defaultValue = "1") Integer pageNum) {
-    PageInfo<DoctorDto> pageInfo = doctorService.getDoctorList(pageNum);
+  public Result getDoctorList(@RequestParam(defaultValue = "1") Integer pageNum, String name, Integer departmentId) {
+    PageInfo<DoctorDto> pageInfo = doctorService.getDoctorList(pageNum, name, departmentId);
     return new Result(Result.OK, pageInfo);
   }
 

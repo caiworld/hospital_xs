@@ -30,17 +30,19 @@ public class DoctorServiceImpl implements DoctorService {
   /**
    * 获取医生信息集合
    *
-   * @param pageNum 页数
+   * @param pageNum      页数
+   * @param name         姓名
+   * @param departmentId 科室id
    * @return com.github.pagehelper.PageInfo<com.caihao.hospitalmanager.entity.Doctor>
    * @author 蔡浩
    * @date 2019/2/26 20:15
    * @since 1.0.0
    */
   @Override
-  public PageInfo<DoctorDto> getDoctorList(Integer pageNum) {
+  public PageInfo<DoctorDto> getDoctorList(Integer pageNum, String name, Integer departmentId) {
     // 分页查询
     PageHelper.startPage(pageNum, PAGESIZE);
-    List<DoctorDto> doctorList = doctorMapper.selectDoctorList();
+    List<DoctorDto> doctorList = doctorMapper.selectDoctorList(name, departmentId);
     return new PageInfo<>(doctorList);
   }
 

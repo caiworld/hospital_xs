@@ -24,15 +24,17 @@ public class PatientController {
   /**
    * 获取病人信息
    *
-   * @param pageNum 页数
+   * @param pageNum      页数
+   * @param name         姓名
+   * @param departmentId 科室id
    * @return com.caihao.hospitalmanager.entity.Result
    * @author 蔡浩
    * @date 2019/3/28 21:56
    * @since 1.0.0
    */
   @GetMapping("/get_list")
-  public Result getPatientList(@RequestParam(defaultValue = "1") Integer pageNum) {
-    return new Result(Result.OK, patientService.getPatientList(pageNum));
+  public Result getPatientList(@RequestParam(defaultValue = "1") Integer pageNum, String name, Integer departmentId) {
+    return new Result(Result.OK, patientService.getPatientList(pageNum, name, departmentId));
   }
 
   /**
@@ -45,7 +47,7 @@ public class PatientController {
    * @since 1.0.0
    */
   @GetMapping("/edit")
-  public Result editPatient(Integer id){
+  public Result editPatient(Integer id) {
     return new Result(Result.OK, patientService.getPatientById(id));
   }
 
@@ -59,11 +61,11 @@ public class PatientController {
    * @since 1.0.0
    */
   @PostMapping("/save")
-  public Result savePatient(@RequestBody Patient patient){
-    if (Objects.isNull(patient.getId())){
+  public Result savePatient(@RequestBody Patient patient) {
+    if (Objects.isNull(patient.getId())) {
       // 保存病人
       return new Result(Result.OK, patientService.savePatient(patient));
-    }else {
+    } else {
       // 修改病人
       return new Result(Result.OK, patientService.updatePatient(patient));
     }
@@ -79,7 +81,7 @@ public class PatientController {
    * @since 1.0.0
    */
   @GetMapping("/delete")
-  public Result deletePatient(Integer id){
+  public Result deletePatient(Integer id) {
     return new Result(Result.OK, patientService.deletePatientById(id));
   }
 }

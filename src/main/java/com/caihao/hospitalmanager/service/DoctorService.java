@@ -15,13 +15,15 @@ public interface DoctorService {
   /**
    * 获取医生信息集合
    *
-   * @param pageNum 页数
+   * @param pageNum      页数
+   * @param name         姓名
+   * @param departmentId 科室id
    * @return com.github.pagehelper.PageInfo<com.caihao.hospitalmanager.entity.Doctor>
    * @author 蔡浩
    * @date 2019/2/26 20:15
    * @since 1.0.0
    */
-  PageInfo<DoctorDto> getDoctorList(Integer pageNum);
+  PageInfo<DoctorDto> getDoctorList(Integer pageNum, String name, Integer departmentId);
 
   /**
    * 根据医生id获取医生信息

@@ -36,16 +36,18 @@ public class PatientServiceImpl implements PatientService {
   /**
    * 获取所有病人信息
    *
-   * @param pageNum 页数
+   * @param pageNum      页数
+   * @param name         姓名
+   * @param departmentId 科室id
    * @return java.util.List<com.caihao.hospitalmanager.entity.Patient>
    * @author 蔡浩
    * @date 2019/3/28 21:52
    * @since 1.0.0
    */
   @Override
-  public PageInfo<PatientDto> getPatientList(Integer pageNum) {
+  public PageInfo<PatientDto> getPatientList(Integer pageNum, String name, Integer departmentId) {
     PageHelper.startPage(pageNum, Common.PAGESIZE);
-    List<PatientDto> patientDtoList = patientMapper.selectPatientList();
+    List<PatientDto> patientDtoList = patientMapper.selectPatientList(name, departmentId);
     // 查询所有科别
     List<Department> departmentList = departmentMapper.selectAll();
     Map<Integer, String> departmentMap = new HashMap<>();

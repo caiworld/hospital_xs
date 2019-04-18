@@ -15,13 +15,15 @@ public interface PatientService {
   /**
    * 获取所有病人信息
    *
-   * @param pageNum 页数
+   * @param pageNum      页数
+   * @param name         姓名
+   * @param departmentId 科室id
    * @return java.util.List<com.caihao.hospitalmanager.entity.Patient>
    * @author 蔡浩
    * @date 2019/3/28 21:52
    * @since 1.0.0
    */
-  PageInfo<PatientDto> getPatientList(Integer pageNum);
+  PageInfo<PatientDto> getPatientList(Integer pageNum, String name, Integer departmentId);
 
   /**
    * 根据病人id获取病人信息

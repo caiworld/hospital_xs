@@ -33,5 +33,12 @@
       exit_time,
       is_exit
     FROM patient
+    WHERE 1=1
+    <if test="name != null">
+      AND INSTR(`name`, #{name})
+    </if>
+    <if test="departmentId != null">
+      AND FIND_IN_SET(#{departmentId},department_ids)
+    </if>
   </select>
 </mapper>

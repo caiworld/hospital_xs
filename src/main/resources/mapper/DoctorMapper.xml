@@ -35,6 +35,13 @@
     LEFT JOIN position AS p ON d.position = p.id
     LEFT JOIN title AS t ON d.title = t.id
     LEFT JOIN department AS dep ON d.department = dep.id
-    WHERE d.is_del = 0
+    WHERE 1=1
+    <if test="name != null">
+      AND INSTR(d.`name`, #{name})
+    </if>
+    <if test="departmentId != null">
+      AND dep.id = #{departmentId}
+    </if>
+    AND d.is_del = 0
   </select>
 </mapper>
