@@ -5,15 +5,15 @@
 
 <generatorConfiguration>
     <!--<properties resource="application.yml"/>-->
-    <classPathEntry
-            location="C:\Users\caiwo\.m2\repository\mysql\mysql-connector-java\5.1.38\mysql-connector-java-5.1.38.jar"/>
+    <!--<classPathEntry-->
+            <!--location="C:\Users\caiwo\.m2\repository\mysql\mysql-connector-java\5.1.38\mysql-connector-java-5.1.38.jar"/>-->
     <context id="Mysql" targetRuntime="MyBatis3Simple" defaultModelType="flat">
         <property name="beginningDelimiter" value="`"/>
         <property name="endingDelimiter" value="`"/>
         <property name="javaFileEncoding" value="UTF-8"/>
 
         <plugin type="tk.mybatis.mapper.generator.MapperPlugin">
-            <property name="mappers" value="com.caihao.hospitalmanager.mapper.generator.MyMapper"/>
+            <property name="mappers" value="com.caihao.hospitalmanager.generator.MyMapper"/>
             <property name="beginningDelimiter" value="`"/>
             <property name="endingDelimiter" value="`"/>
         </plugin>
@@ -32,7 +32,7 @@
         <javaClientGenerator targetPackage="com.caihao.hospitalmanager.mapper" targetProject="src/main/java"
                              type="XMLMAPPER"/>
 
-      <table tableName="doctor" enableCountByExample="false" enableUpdateByExample="false"
+      <table tableName="user" enableCountByExample="false" enableUpdateByExample="false"
              enableDeleteByExample="false" enableSelectByExample="false"
              selectByExampleQueryId="false">
         <!--mysql 配置-->

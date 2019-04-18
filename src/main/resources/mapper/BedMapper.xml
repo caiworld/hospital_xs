@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.caihao.hospitalmanager.mapper.BedMapper" >
+  <resultMap id="BaseResultMap" type="com.caihao.hospitalmanager.entity.Bed" >
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="patient_id" property="patientId" jdbcType="INTEGER" />
+    <result column="grade" property="grade" jdbcType="INTEGER" />
+    <result column="state" property="state" jdbcType="SMALLINT" />
+    <result column="is_del" property="isDel" jdbcType="BIT" />
+  </resultMap>
+
+  <!--查询病床信息-->
+  <select id="selectBedList" resultType="com.caihao.hospitalmanager.entity.dto.BedDto">
+    SELECT
+      b.id,
+      b.patient_id,
+      b.grade,
+      b.state,
+      p.`name` AS patientName,
+      bg.`name` AS bedGradeName,
+      bg.cost
+    FROM bed AS b
+    LEFT JOIN patient AS p ON b.patient_id = p.id
+    LEFT JOIN bed_grade AS bg ON b.grade = bg.id
+  </select>
+</mapper>

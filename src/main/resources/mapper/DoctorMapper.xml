@@ -8,7 +8,7 @@
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="name" property="name" jdbcType="VARCHAR" />
     <result column="sex" property="sex" jdbcType="BIT" />
-    <result column="headImg" property="headimg" jdbcType="VARCHAR" />
+    <result column="headImg" property="head_img" jdbcType="VARCHAR" />
     <result column="title" property="title" jdbcType="INTEGER" />
     <result column="position" property="position" jdbcType="INTEGER" />
     <result column="department" property="department" jdbcType="VARCHAR" />
@@ -17,7 +17,24 @@
   </resultMap>
 
   <!--查询医生信息-->
-  <select id="selectDoctorList" resultType="com.caihao.hospitalmanager.entity.Doctor">
-    SELECT * FROM doctor
+  <select id="selectDoctorList" resultType="com.caihao.hospitalmanager.entity.dto.DoctorDto">
+    SELECT
+      d.id,
+      d.`name`,
+      d.sex,
+      d.head_img,
+      t.`name` AS titleName,
+      p.`name` AS positionName,
+      dep.`name` AS departmentName,
+      d.birth_time,
+      d.work_time,
+      d.create_time,
+      d.update_time
+    FROM
+      doctor AS d
+    LEFT JOIN position AS p ON d.position = p.id
+    LEFT JOIN title AS t ON d.title = t.id
+    LEFT JOIN department AS dep ON d.department = dep.id
+    WHERE d.is_del = 0
   </select>
 </mapper>

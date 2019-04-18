@@ -1,4 +1,4 @@
-package com.caihao.hospitalmanager.mapper.generator;
+package com.caihao.hospitalmanager.generator;
 
 import tk.mybatis.mapper.common.Mapper;
 import tk.mybatis.mapper.common.MySqlMapper;
