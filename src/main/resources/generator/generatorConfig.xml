@@ -32,7 +32,7 @@
         <javaClientGenerator targetPackage="com.caihao.hospitalmanager.mapper" targetProject="src/main/java"
                              type="XMLMAPPER"/>
 
-      <table tableName="user" enableCountByExample="false" enableUpdateByExample="false"
+      <table tableName="charge" enableCountByExample="false" enableUpdateByExample="false"
              enableDeleteByExample="false" enableSelectByExample="false"
              selectByExampleQueryId="false">
         <!--mysql 配置-->

@@ -103,10 +103,13 @@ public class ShiroConfig {
     filterMap.put("/login", "anon");
     // 放行测试请求
     filterMap.put("/test", "anon");
+    filterMap.put("/test2", "anon");
+    filterMap.put("/","anon");
     // 配置退出过滤器，退出代码shiro已经实现
     filterMap.put("/logout", "anon");
     // 过滤链定义，从上向下顺序执行，一般将/*放在最下边
-    filterMap.put("/**", "authc");
+//    filterMap.put("/**", "authc");
+    filterMap.put("/**", "anon");
     shiroFilterFactoryBean.setFilterChainDefinitionMap(filterMap);
     return shiroFilterFactoryBean;
   }

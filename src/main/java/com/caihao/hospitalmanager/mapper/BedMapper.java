@@ -17,4 +17,15 @@ public interface BedMapper extends MyMapper<Bed> {
    * @since 1.0.0
    */
   List<BedDto> selectBedList();
+
+  /**
+   * 根据id查询病床信息
+   *
+   * @param id 病床编号
+   * @return com.caihao.hospitalmanager.entity.dto.BedDto
+   * @author 蔡浩
+   * @date 2019/4/22 11:16
+   * @since 1.0.0
+   */
+  BedDto selectBedDtoById(Integer id);
 }

@@ -30,10 +30,13 @@ public class MyWebConfig extends WebMvcConfigurerAdapter {
    */
   @Override
   public void addCorsMappings(CorsRegistry registry) {
-    registry.addMapping("/**")
-            .allowCredentials(true)
-            .allowedHeaders("*")
-            .allowedOrigins("*")
-            .allowedMethods("*");
+    System.out.println("设置允许跨域访问mm");
+     registry.addMapping("/**")
+             .allowCredentials(true)
+             .allowedHeaders("*")
+             .allowedOrigins("*")
+             .allowedMethods("*");
+//    registry.addMapping("/**").allowedOrigins("*").allowedMethods("GET", "PUT", "DELETE",
+//            "POST");
   }
 }

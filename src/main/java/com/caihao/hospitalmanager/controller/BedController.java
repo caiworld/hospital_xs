@@ -60,7 +60,7 @@ public class BedController {
    * @since 1.0.0
    */
   @PostMapping("/save")
-  public Result saveBed(Bed bed){
+  public Result saveBed(@RequestBody Bed bed){
     if (Objects.isNull(bed.getId())){
       // 新增病床信息
       return new Result(Result.OK, bedService.saveBed(bed));

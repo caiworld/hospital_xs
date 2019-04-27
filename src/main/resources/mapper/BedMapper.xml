@@ -26,4 +26,16 @@
     LEFT JOIN patient AS p ON b.patient_id = p.id
     LEFT JOIN bed_grade AS bg ON b.grade = bg.id
   </select>
+
+  <!--根据id查询病床信息-->
+  <select id="selectBedDtoById" resultType="com.caihao.hospitalmanager.entity.dto.BedDto">
+    SELECT
+      b.id,
+      b.state,
+      bg.`name` AS bedGradeName,
+      bg.cost
+    FROM bed AS b
+    LEFT JOIN bed_grade AS bg ON b.grade = bg.id
+    WHERE b.id = #{id}
+  </select>
 </mapper>

@@ -1,7 +1,8 @@
 package com.caihao.hospitalmanager.controller;
 
-import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -10,11 +11,17 @@ import org.springframework.web.bind.annotation.RestController;
  * @Author 蔡浩
  * @Date 2019/4/4 15:56
  */
-@RestController
+@Controller
 public class TestController {
-  @CrossOrigin
+  // @CrossOrigin
   @RequestMapping("/test")
+  @ResponseBody
   public String test(){
     return "test success";
+  }
+
+  @RequestMapping("/test2")
+  public String test2(){
+    return "/abc.html";
   }
 }

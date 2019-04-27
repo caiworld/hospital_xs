@@ -2,6 +2,7 @@ package com.caihao.hospitalmanager.service;
 
 import com.caihao.hospitalmanager.entity.Bed;
 import com.caihao.hospitalmanager.entity.dto.BedDto;
+import com.caihao.hospitalmanager.entity.dto.BedEditDto;
 import com.github.pagehelper.PageInfo;
 
 /**
@@ -31,7 +32,7 @@ public interface BedService {
    * @date 2019/4/12 14:35
    * @since 1.0.0
    */
-  Bed getBedById(Integer id);
+  BedEditDto getBedById(Integer id);
 
   /**
    * 新增病床

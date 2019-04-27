@@ -3,6 +3,9 @@ package com.caihao.hospitalmanager.service.impl;
 import com.caihao.hospitalmanager.Common;
 import com.caihao.hospitalmanager.entity.Bed;
 import com.caihao.hospitalmanager.entity.dto.BedDto;
+import com.caihao.hospitalmanager.entity.dto.BedEditDto;
+import com.caihao.hospitalmanager.entity.dto.DropDownDto;
+import com.caihao.hospitalmanager.mapper.BedGradeMapper;
 import com.caihao.hospitalmanager.mapper.BedMapper;
 import com.caihao.hospitalmanager.service.BedService;
 import com.github.pagehelper.PageHelper;
@@ -10,6 +13,8 @@ import com.github.pagehelper.PageInfo;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * 病床service实现类
@@ -22,6 +27,8 @@ public class BedServiceImpl implements BedService {
 
   @Autowired
   private BedMapper bedMapper;
+  @Autowired
+  private BedGradeMapper bedGradeMapper;
 
   /**
    * 查询病床信息
@@ -48,8 +55,16 @@ public class BedServiceImpl implements BedService {
    * @since 1.0.0
    */
   @Override
-  public Bed getBedById(Integer id) {
-    return bedMapper.selectByPrimaryKey(id);
+  public BedEditDto getBedById(Integer id) {
+    BedEditDto bedEditDto = new BedEditDto();
+    // 查询病床信息
+    Bed bed = bedMapper.selectByPrimaryKey(id);
+    // 查询病床等级集合信息
+    List<DropDownDto> bedGradeList = bedGradeMapper.selectDropDownDtoList();
+    bedEditDto.setId(bed.getId());
+    bedEditDto.setGrade(bed.getGrade());
+    bedEditDto.setBedGradeList(bedGradeList);
+    return bedEditDto;
   }
 
   /**

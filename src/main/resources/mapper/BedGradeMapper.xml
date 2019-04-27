@@ -9,4 +9,12 @@
     <result column="name" property="name" jdbcType="VARCHAR" />
     <result column="cost" property="cost" jdbcType="DOUBLE" />
   </resultMap>
+
+  <!--查询病床等级下拉框信息集合-->
+  <select id="selectDropDownDtoList" resultType="com.caihao.hospitalmanager.entity.dto.DropDownDto">
+    SELECT
+      id AS "value",
+      `name` AS "label"
+    FROM bed_grade
+  </select>
 </mapper>
