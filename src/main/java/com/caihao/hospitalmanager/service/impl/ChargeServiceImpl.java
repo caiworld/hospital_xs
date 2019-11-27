@@ -3,7 +3,6 @@ package com.caihao.hospitalmanager.service.impl;
 import com.caihao.hospitalmanager.Common;
 import com.caihao.hospitalmanager.entity.Charge;
 import com.caihao.hospitalmanager.entity.dto.ChargeDetailDto;
-import com.caihao.hospitalmanager.entity.dto.ChargeDto;
 import com.caihao.hospitalmanager.entity.dto.ChargeSumDto;
 import com.caihao.hospitalmanager.mapper.ChargeMapper;
 import com.caihao.hospitalmanager.service.ChargeService;
@@ -15,7 +14,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-import java.util.Objects;
 
 /**
  * TODO
@@ -42,7 +40,7 @@ public class ChargeServiceImpl implements ChargeService {
    */
   @Override
   public PageInfo<ChargeSumDto> getChargeList(Integer pageNum, String name, String number) {
-    PageHelper.startPage(pageNum, Common.PAGESIZE);
+    PageHelper.startPage(pageNum, Common.PAGE_SIZE);
     List<ChargeSumDto> chargeSumDtoList = chargeMapper.selectChargeSumDto(name, number);
     return new PageInfo<>(chargeSumDtoList);
   }
