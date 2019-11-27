@@ -10,5 +10,5 @@ public interface Common {
   /**
    * 每页显示数据量
    */
-  int PAGESIZE = 10;
+  int PAGE_SIZE = 20;
 }

@@ -1,5 +1,6 @@
 package com.caihao.hospitalmanager.interceptor;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
@@ -13,6 +14,8 @@ import javax.servlet.http.HttpServletResponse;
  * @Author 蔡浩
  * @Date 2019/4/4 16:13
  */
+// @ControllerAdvice
+@Slf4j
 public class CrossOriginInterceptor implements HandlerInterceptor {
   /**
    * 在请求处理之前进行调用（Controller方法调用之前)
@@ -25,9 +28,16 @@ public class CrossOriginInterceptor implements HandlerInterceptor {
   public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object
           handler) throws Exception {
     // 设置允许跨域
+    // response.setHeader("Access-Control-Allow-Origin", "*");
+    // response.setHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, " +
+    //         "Accept");
     response.setHeader("Access-Control-Allow-Origin", "*");
-    response.setHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, " +
-            "Accept");
+    response.setHeader("Access-Control-Allow-Methods", "*");
+    response.setHeader("Access-Control-Max-Age", "3600");
+    response.setHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Authorization,"
+            + " Content-Type, Accept, Connection, User-Agent, Cookie,token");
+    log.info("设置允许跨域");
+    System.out.println("设置了允许跨域");
     return true;
   }
 

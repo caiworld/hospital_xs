@@ -2,7 +2,9 @@ package com.caihao.hospitalmanager.service;
 
 import com.caihao.hospitalmanager.entity.Doctor;
 import com.caihao.hospitalmanager.entity.dto.DoctorDto;
+import com.caihao.hospitalmanager.entity.dto.DropDownDto;
 import com.github.pagehelper.PageInfo;
+import java.util.List;
 
 /**
  * Doctor服务接口
@@ -68,4 +70,15 @@ public interface DoctorService {
    * @since 1.0.0
    */
   int deleteDoctorById(Integer id);
+
+  /**
+   * 根据科室id获取医生下拉框信息
+   *
+   * @param departmentId 科室id
+   * @return java.util.List<com.caihao.hospitalmanager.entity.dto.DropDownDto>
+   * @author 蔡浩
+   * @date 2019/4/30 15:41
+   * @since 1.0.0
+   */
+  List<DropDownDto> getDoctorListByDepartmentId(Integer departmentId);
 }

@@ -8,4 +8,12 @@
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="name" property="name" jdbcType="VARCHAR" />
   </resultMap>
+
+  <!--查询职位下拉框信息-->
+  <select id="selectTitleList" resultType="com.caihao.hospitalmanager.entity.dto.DropDownDto">
+    SELECT
+      id AS "value",
+      `name` AS "label"
+    FROM title
+  </select>
 </mapper>

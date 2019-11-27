@@ -31,7 +31,7 @@
         c.end_time
       FROM charge AS c
       LEFT JOIN patient AS p ON c.patient_id = p.id
-      WHERE 1=1 AND c.is_del = 0
+      WHERE c.is_del = 0
       <if test="name != null">
         AND INSTR(p.`name`, #{name})
       </if>

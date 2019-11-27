@@ -38,4 +38,24 @@
     LEFT JOIN bed_grade AS bg ON b.grade = bg.id
     WHERE b.id = #{id}
   </select>
+
+  <!--查询已使用的病床数-->
+  <select id="selectUsedBedCount" resultType="int">
+    SELECT COUNT(id) FROM bed WHERE state = 1 AND is_del = 0
+  </select>
+
+  <!--查询总病床数-->
+  <select id="selectBedCount" resultType="int">
+    SELECT COUNT(id) FROM bed WHERE is_del = 0
+  </select>
+
+  <!--根据病床等级查询出一张病床-->
+  <select id="selectFreeBedByGrade" resultType="int">
+    SELECT
+      id
+    FROM bed
+    WHERE state = 0 AND is_del = 0 AND grade = #{bedGradeId}
+    LIMIT 1
+  </select>
+
 </mapper>

@@ -2,6 +2,7 @@ package com.caihao.hospitalmanager.service.impl;
 
 import com.caihao.hospitalmanager.entity.Doctor;
 import com.caihao.hospitalmanager.entity.dto.DoctorDto;
+import com.caihao.hospitalmanager.entity.dto.DropDownDto;
 import com.caihao.hospitalmanager.mapper.DoctorMapper;
 import com.caihao.hospitalmanager.service.DoctorService;
 import com.github.pagehelper.PageHelper;
@@ -13,7 +14,7 @@ import org.springframework.stereotype.Service;
 import java.util.Date;
 import java.util.List;
 
-import static com.caihao.hospitalmanager.Common.PAGESIZE;
+import static com.caihao.hospitalmanager.Common.PAGE_SIZE;
 
 /**
  * DoctorService接口的实现类
@@ -41,7 +42,7 @@ public class DoctorServiceImpl implements DoctorService {
   @Override
   public PageInfo<DoctorDto> getDoctorList(Integer pageNum, String name, Integer departmentId) {
     // 分页查询
-    PageHelper.startPage(pageNum, PAGESIZE);
+    PageHelper.startPage(pageNum, PAGE_SIZE);
     List<DoctorDto> doctorList = doctorMapper.selectDoctorList(name, departmentId);
     return new PageInfo<>(doctorList);
   }
@@ -101,5 +102,19 @@ public class DoctorServiceImpl implements DoctorService {
   @Override
   public int deleteDoctorById(Integer id) {
     return doctorMapper.deleteByPrimaryKey(id);
+  }
+
+  /**
+   * 根据科室id获取医生下拉框信息
+   *
+   * @param departmentId 科室id
+   * @return java.util.List<com.caihao.hospitalmanager.entity.dto.DropDownDto>
+   * @author 蔡浩
+   * @date 2019/4/30 15:41
+   * @since 1.0.0
+   */
+  @Override
+  public List<DropDownDto> getDoctorListByDepartmentId(Integer departmentId) {
+    return doctorMapper.selectDoctorListByDepartmentId(departmentId);
   }
 }

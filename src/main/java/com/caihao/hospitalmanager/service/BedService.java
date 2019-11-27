@@ -3,7 +3,9 @@ package com.caihao.hospitalmanager.service;
 import com.caihao.hospitalmanager.entity.Bed;
 import com.caihao.hospitalmanager.entity.dto.BedDto;
 import com.caihao.hospitalmanager.entity.dto.BedEditDto;
+import com.caihao.hospitalmanager.entity.dto.DropDownDto;
 import com.github.pagehelper.PageInfo;
+import java.util.List;
 
 /**
  * 病床service
