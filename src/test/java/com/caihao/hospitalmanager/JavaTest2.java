@@ -14,7 +14,7 @@ public class JavaTest2 implements Runnable {
   public void run() {
     for (int i = 0; i < 1000000; i++) {
       synchronized (JavaTest2.class) {
-        a++;
+        ++a;
       }
     }
   }
