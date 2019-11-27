@@ -2,7 +2,9 @@ package com.caihao.hospitalmanager.service;
 
 import com.caihao.hospitalmanager.entity.Patient;
 import com.caihao.hospitalmanager.entity.dto.PatientDto;
+import com.caihao.hospitalmanager.entity.dto.PatientStatisticDto;
 import com.github.pagehelper.PageInfo;
+import java.util.Date;
 
 /**
  * 病人service
@@ -15,8 +17,8 @@ public interface PatientService {
   /**
    * 获取所有病人信息
    *
-   * @param pageNum      页数
-   * @param name         姓名
+   * @param pageNum 页数
+   * @param name 姓名
    * @param departmentId 科室id
    * @return java.util.List<com.caihao.hospitalmanager.entity.Patient>
    * @author 蔡浩
@@ -68,4 +70,16 @@ public interface PatientService {
    * @since 1.0.0
    */
   int deletePatientById(Integer id);
+
+  /**
+   * 获取病人统计信息
+   *
+   * @param beginTime 开始时间
+   * @param endTime 结束时间
+   * @return com.caihao.hospitalmanager.entity.dto.PatientStatisticDto
+   * @author 蔡浩
+   * @date 2019/4/27 17:03
+   * @since 1.0.0
+   */
+  PatientStatisticDto getStatisticPatient(Date beginTime, Date endTime);
 }

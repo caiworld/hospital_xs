@@ -44,4 +44,16 @@
     </if>
     AND d.is_del = 0
   </select>
+
+  <!--根据科室id获取医生下拉框信息-->
+  <select id="selectDoctorListByDepartmentId" resultType="com.caihao.hospitalmanager.entity.dto.DropDownDto">
+    SELECT
+      id AS "value",
+      `name` AS "label"
+    FROM doctor
+    WHERE 1=1
+    <if test="departmentId != null">
+      AND department = #{departmentId}
+    </if>
+  </select>
 </mapper>

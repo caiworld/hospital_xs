@@ -78,6 +78,18 @@ public class Patient {
     private Boolean isExit;
 
     /**
+     * 病床号
+     */
+    @Column(name = "`bed_id`")
+    private Integer bedId;
+
+    /**
+     * 是否出院，0否，1是
+     */
+    @Column(name = "`bed_grade_id`")
+    private Integer bedGradeId;
+
+    /**
      * 获取 病人id
      *
      * @return id -  病人id
@@ -273,5 +285,21 @@ public class Patient {
      */
     public void setIsExit(Boolean isExit) {
         this.isExit = isExit;
+    }
+
+    public Integer getBedId() {
+        return bedId;
+    }
+
+    public void setBedId(Integer bedId) {
+        this.bedId = bedId;
+    }
+
+    public Integer getBedGradeId() {
+        return bedGradeId;
+    }
+
+    public void setBedGradeId(Integer bedGradeId) {
+        this.bedGradeId = bedGradeId;
     }
 }

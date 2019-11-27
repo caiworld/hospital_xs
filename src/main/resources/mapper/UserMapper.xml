@@ -25,4 +25,9 @@
     FROM `user`
     WHERE `username` = #{username}
   </select>
+
+  <update id="updatePwdByUsername">
+    UPDATE `user` SET `password`=#{newPwd}
+    WHERE `username`=#{username}
+  </update>
 </mapper>

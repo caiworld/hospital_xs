@@ -41,8 +41,9 @@ public class BedServiceImpl implements BedService {
    */
   @Override
   public PageInfo<BedDto> getBedList(Integer pageNum) {
-    PageHelper.startPage(pageNum, Common.PAGESIZE);
-    return new PageInfo<>(bedMapper.selectBedList());
+    PageHelper.startPage(pageNum, Common.PAGE_SIZE);
+    List<BedDto> bedDtoList = bedMapper.selectBedList();
+    return new PageInfo<>(bedDtoList);
   }
 
   /**

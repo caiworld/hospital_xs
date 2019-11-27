@@ -17,4 +17,15 @@
       `name` AS "label"
     FROM bed_grade
   </select>
+
+  <!--获取还有空余病床的等级下拉框信息-->
+  <select id="selectFreeBedGradeList" resultType="com.caihao.hospitalmanager.entity.dto.DropDownDto">
+    SELECT
+      bg.id AS "value",
+      bg.`name` AS "label"
+    FROM bed_grade AS bg
+    LEFT JOIN bed AS b ON bg.id = b.grade
+    WHERE b.state = 0 AND b.is_del = 0
+    GROUP BY bg.id
+  </select>
 </mapper>
